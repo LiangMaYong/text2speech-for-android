@@ -17,7 +17,7 @@ dependencies {
  Text2Speech.load(this,"你有新的消息，请注意查收！");
 ```
 ## preview
-[preview](https://raw.github.com/LiangMaYong/text2speech-for-android/preview/preview.png)
+![image](https://raw.githubusercontent.com/LiangMaYong/text2speech-for-android/master/preview/preview.png)
 
 ##技术交流
 交流：QQ群297798093
