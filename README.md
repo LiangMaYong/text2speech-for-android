@@ -4,7 +4,7 @@ this is android text to speech tool
 ## gradle
 ```
 dependencies {
-    compile 'com.liangmayong:text2speech:1.0.0'
+    compile 'com.liangmayong:text2speech:1.0.1'
 }
 ```
 ## Speech
@@ -18,7 +18,10 @@ dependencies {
 ```
 ## preview
 ![image](https://raw.githubusercontent.com/LiangMaYong/text2speech-for-android/master/preview/preview.png)
+## 更新说明
+1.0.1 版本：添加中英文识别控制，默认speech调用会自动分词
 
+1.0.0 版本：首次发布
 ##技术交流
 交流：QQ群297798093
 

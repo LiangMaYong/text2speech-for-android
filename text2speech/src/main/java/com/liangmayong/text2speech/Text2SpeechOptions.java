@@ -12,6 +12,8 @@ public class Text2SpeechOptions {
     public static final String LANGUAGE_ZH = "zh";
     //en
     public static final String LANGUAGE_EN = "en";
+    //lang
+    private String lang = "";
     //text
     private String text;
     //afterDelete
@@ -147,5 +149,23 @@ public class Text2SpeechOptions {
      */
     public void setChunkLength(int chunkLength) {
         this.chunkLength = chunkLength;
+    }
+
+    /**
+     * getLang
+     *
+     * @return lang
+     */
+    public String getLang() {
+        return lang;
+    }
+
+    /**
+     * setLang
+     *
+     * @param lang lang
+     */
+    public void setLang(String lang) {
+        this.lang = lang;
     }
 }

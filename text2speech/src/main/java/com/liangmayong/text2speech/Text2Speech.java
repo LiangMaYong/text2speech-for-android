@@ -283,6 +283,7 @@ public class Text2Speech {
         intent.putExtra("is_return_temp", message.isReturnTemp());
         intent.putExtra("afterdelete", message.isAfterDelete());
         intent.putExtra("chunkLength", message.getChunkLength());
+        intent.putExtra("lang", message.getLang());
         context.startService(intent);
     }
 
@@ -304,6 +305,42 @@ public class Text2Speech {
     }
 
     /**
+     * speechZh
+     *
+     * @param context     context
+     * @param msg         msg
+     * @param spd         spd
+     * @param afterDelete afterDelete
+     */
+    public static void speechZh(Context context, String msg, int spd, boolean afterDelete) {
+        init(context);
+        Intent intent = new Intent(context, Text2SpeechService.class);
+        intent.putExtra("text", msg);
+        intent.putExtra("spd", spd);
+        intent.putExtra("afterdelete", afterDelete);
+        intent.putExtra("lang", "zh");
+        context.startService(intent);
+    }
+
+    /**
+     * speechEn
+     *
+     * @param context     context
+     * @param msg         msg
+     * @param spd         spd
+     * @param afterDelete afterDelete
+     */
+    public static void speechEn(Context context, String msg, int spd, boolean afterDelete) {
+        init(context);
+        Intent intent = new Intent(context, Text2SpeechService.class);
+        intent.putExtra("text", msg);
+        intent.putExtra("spd", spd);
+        intent.putExtra("afterdelete", afterDelete);
+        intent.putExtra("lang", "en");
+        context.startService(intent);
+    }
+
+    /**
      * load
      *
      * @param context context
@@ -317,6 +354,42 @@ public class Text2Speech {
         intent.putExtra("spd", spd);
         intent.putExtra("unplay", 1);
         intent.putExtra("afterdelete", false);
+        context.startService(intent);
+    }
+
+    /**
+     * loadZh
+     *
+     * @param context context
+     * @param msg     msg
+     * @param spd     spd
+     */
+    public static void loadZh(Context context, String msg, int spd) {
+        init(context);
+        Intent intent = new Intent(context, Text2SpeechService.class);
+        intent.putExtra("text", msg);
+        intent.putExtra("spd", spd);
+        intent.putExtra("unplay", 1);
+        intent.putExtra("afterdelete", false);
+        intent.putExtra("lang", "zh");
+        context.startService(intent);
+    }
+
+    /**
+     * loadEn
+     *
+     * @param context context
+     * @param msg     msg
+     * @param spd     spd
+     */
+    public static void loadEn(Context context, String msg, int spd) {
+        init(context);
+        Intent intent = new Intent(context, Text2SpeechService.class);
+        intent.putExtra("text", msg);
+        intent.putExtra("spd", spd);
+        intent.putExtra("unplay", 1);
+        intent.putExtra("afterdelete", false);
+        intent.putExtra("lang", "en");
         context.startService(intent);
     }
 
@@ -335,6 +408,36 @@ public class Text2Speech {
     }
 
     /**
+     * loadZh
+     *
+     * @param context context
+     * @param msg     msg
+     */
+    public static void loadZh(Context context, String msg) {
+        init(context);
+        Intent intent = new Intent(context, Text2SpeechService.class);
+        intent.putExtra("text", msg);
+        intent.putExtra("unplay", 1);
+        intent.putExtra("lang", "zh");
+        context.startService(intent);
+    }
+
+    /**
+     * loadEn
+     *
+     * @param context context
+     * @param msg     msg
+     */
+    public static void loadEn(Context context, String msg) {
+        init(context);
+        Intent intent = new Intent(context, Text2SpeechService.class);
+        intent.putExtra("text", msg);
+        intent.putExtra("unplay", 1);
+        intent.putExtra("lang", "en");
+        context.startService(intent);
+    }
+
+    /**
      * speech
      *
      * @param context     context
@@ -346,6 +449,38 @@ public class Text2Speech {
         Intent intent = new Intent(context, Text2SpeechService.class);
         intent.putExtra("text", msg);
         intent.putExtra("afterdelete", afterDelete);
+        context.startService(intent);
+    }
+
+    /**
+     * speechZh
+     *
+     * @param context     context
+     * @param msg         msg
+     * @param afterDelete afterDelete
+     */
+    public static void speechZh(Context context, String msg, boolean afterDelete) {
+        init(context);
+        Intent intent = new Intent(context, Text2SpeechService.class);
+        intent.putExtra("text", msg);
+        intent.putExtra("afterdelete", afterDelete);
+        intent.putExtra("lang", "zh");
+        context.startService(intent);
+    }
+
+    /**
+     * speechEn
+     *
+     * @param context     context
+     * @param msg         msg
+     * @param afterDelete afterDelete
+     */
+    public static void speechEn(Context context, String msg, boolean afterDelete) {
+        init(context);
+        Intent intent = new Intent(context, Text2SpeechService.class);
+        intent.putExtra("text", msg);
+        intent.putExtra("afterdelete", afterDelete);
+        intent.putExtra("lang", "en");
         context.startService(intent);
     }
 

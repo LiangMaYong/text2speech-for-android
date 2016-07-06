@@ -215,7 +215,10 @@ public class Text2SpeechService extends Service {
                 } else {//start
                     String text = intent.getStringExtra("text");
                     boolean is_return_temp = intent.getBooleanExtra("is_return_temp", true);
+                    //spd
                     spd = intent.getIntExtra("spd", -1);
+                    //lang
+                    lang = intent.getStringExtra("lang");
                     int readtime = intent.getIntExtra("readtime", -1);
                     int outtime = intent.getIntExtra("outtime", -1);
                     unplay = intent.getIntExtra("unplay", -1);
@@ -244,6 +247,7 @@ public class Text2SpeechService extends Service {
     ;
 
     private int spd = 4;
+    private String lang = "";
 
     private void speech(String text) {
         String filename = StringBySHA1(text + "/" + spd);
@@ -255,20 +259,32 @@ public class Text2SpeechService extends Service {
                 String type = maps.get(j).get("type");
                 String value = maps.get(j).get("value");
                 if (type == "num") {
+                    String la = "zh";
+                    if ("zh".equals(lang) || "en".equals(lang)) {
+                        la = lang;
+                    }
                     try {
-                        urls.add(new URL(getUrl(value, "zh", "utf-8", spd, 0)));
+                        urls.add(new URL(getUrl(value, la, "utf-8", spd, 0)));
                     } catch (MalformedURLException e) {
                     } catch (UnsupportedEncodingException e) {
                     }
                 } else if (type == "zh") {
+                    String la = "zh";
+                    if ("zh".equals(lang) || "en".equals(lang)) {
+                        la = lang;
+                    }
                     try {
-                        urls.add(new URL(getUrl(value, "zh", "utf-8", spd, 0)));
+                        urls.add(new URL(getUrl(value, la, "utf-8", spd, 0)));
                     } catch (MalformedURLException e) {
                     } catch (UnsupportedEncodingException e) {
                     }
                 } else if (type == "en") {
+                    String la = "en";
+                    if ("zh".equals(lang) || "en".equals(lang)) {
+                        la = lang;
+                    }
                     try {
-                        urls.add(new URL(getUrl(value, "en", "utf-8", spd, 0)));
+                        urls.add(new URL(getUrl(value, la, "utf-8", spd, 0)));
                     } catch (MalformedURLException e) {
                     } catch (UnsupportedEncodingException e) {
                     }
